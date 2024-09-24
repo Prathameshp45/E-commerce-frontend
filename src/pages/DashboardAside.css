@@ -1,0 +1,76 @@
+/* DashboardAside.css */
+
+.wrapper {
+    display: flex;
+    height: 100vh;
+    background-color: #f0f2f5;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Sidebar styling */
+  .sidebar {
+    width: 220px;
+    background-color: #ffffff;
+    color: #08090b;
+    padding: 20px;
+    position: fixed;
+    height: 100%;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar .nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar .nav li {
+    margin: 10px 0;
+  }
+  
+  .sidebar .nav li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #060d16;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .sidebar .nav li a:hover {
+    background-color: #334155;
+    color: #040506;
+  }
+  
+  .sidebar hr {
+    border: none;
+    height: 1px;
+    background-color: #64748b;
+    margin: 20px 0;
+  }
+  
+  /* Main content styling */
+  .main-content {
+    margin-left: 220px; 
+    flex-grow: 1;
+    padding: 30px;
+    background-color: #ffffff;
+    color: #1f2937;
+    overflow-y: auto;
+  }
+    
+  .main-content h1 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #6f6f71;
+    font-weight: 600;
+  }
+  
+  .main-content .default-message {
+    font-size: 18px;
+    color: #64748b;
+    margin-top: 50px;
+    text-align: center;
+  }
+  
