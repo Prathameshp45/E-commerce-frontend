@@ -11,11 +11,16 @@ const DashboardAside = () => {
   const { user, setUser } = useContext(UserContext);
   console.log("DashboardAside",setUser);
 
+
+  if (!user) {
+    return <div >loading..</div>
+  }
+
   return (
     <>
       <div className="wrapper">
       <div className="sidebar">
-        {user.role = "admin" ? (
+        {user.role === "admin" ? (
           <ul className="nav">
             <li>
               <Link to="products">Products</Link>

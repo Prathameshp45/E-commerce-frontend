@@ -1,48 +1,43 @@
-import React from "react";
+import React from 'react';
+import { Modal, Button } from 'react-bootstrap';
+import axios from 'axios';
 
-import axios from "axios";
+const DeleteProductModal = ({ show, onHide, product, onProductDeleted }) => {
+  const handleDelete = async () => {
+    const token = localStorage.getItem('token');
+    console.log(" product in delete modal",product);
+    try {
+      await axios.delete(`http://localhost:4000/api/products/deleteProduct/${product.id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
+      onProductDeleted();
+      onHide();
+    } catch (err) {
+      console.error('Error deleting product', err);
+    }
+  };
 
-const DeleteProduct = ({show ,onHide , product ,onProductDeleted})=>{
-    const handleDelete = async ()=>{
-        const token = localStorage.getitem('token');
-        console.log('product in delete',product );
-        try{
-            await axios.delete(`htttp://localhost:4000/api/products/delteProduct/${product.id}`,{
-                headers:{
-                    Authorization:`Bearer ${token}`,
-                }
-            });
-            onProductDeleted();
-            onHide();
-        
-        }catch(err){
-            console.log('error delteing product ',err);
+  return (
+    <Modal show={show} onHide={onHide}>
+      <Modal.Header closeButton>
+        <Modal.Title>Delete Product</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        Are you sure you want to delete the product "{product.name}"?
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={onHide}>
+          Cancel
+        </Button>
+        <Button variant="danger" onClick={handleDelete}>
+          Delete
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
 
-        }
-
-        
-    };
-
-    return(
-        <Model show={show} onHide={onhide}>
-            <Model.Header closeButton>
-                <Model.Title>Delete Product </Model.Title>
-                </Model.Header>
-                <Model.body>
-                    Are you sure you want to delete {product.name}?
-                    This action cannot be undone.       
-                </Model.body>
-                <Model.Footer>
-                    <Button variant="secoundary" onclick={onhide}>
-                        cancel
-                    </Button>
-                    <Button variant="danger" onClick={handleDelete}></Button>
-                </Model.Footer>
-        </Model>
-    )
-
-
-}
-
-export default DeleteProduct;
+export default DeleteProductModal;

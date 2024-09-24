@@ -3,7 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { BrowserRouter, Routes,Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
-import Home from './pages/Home';
+import Home from './components/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import { Userprovider } from './context/userContext';

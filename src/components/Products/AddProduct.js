@@ -91,11 +91,11 @@ const AddProduct = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="productImage">Product Image</label>
+          <label htmlFor="image">Product Image</label>
           <input
             type="file"
             className="form-control"
-            id="productImage"
+            id="image"
             onChange={(e) => setImage(e.target.files[0])}
           />
         </div>
